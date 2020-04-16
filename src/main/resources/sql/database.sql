@@ -8,17 +8,17 @@ USE `ServicesCar`;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ServicesCar`.`employees`
 (
-    `id`              INT          NOT NULL AUTO_INCREMENT,
-    `first_name`      VARCHAR(245) NULL,
-    `last_name`       VARCHAR(245) NULL,
-    `email`           VARCHAR(245) NULL UNIQUE,
-    `password`        VARCHAR(245) NULL,
-    `super_admin`     TINYINT(10)  NULL,
-    `address`         VARCHAR(245) NULL,
-    `telephon_number` VARCHAR(245) NULL,
-    `Notes`           TEXT(1000)   NULL,
-    `hourly_rate`     DECIMAL      NULL,
-    `quantity hours`  VARCHAR(45)  NULL,
+    `id`             INT          NOT NULL AUTO_INCREMENT,
+    `first_name`     VARCHAR(245) NULL,
+    `last_name`      VARCHAR(245) NULL,
+    `email`          VARCHAR(245) NULL UNIQUE,
+    `password`       VARCHAR(245) NULL,
+    `super_admin`    TINYINT(10)  NULL,
+    `address`        VARCHAR(245) NULL,
+    `phone_number`   INT(11)      NULL,
+    `Notes`          TEXT(1000)   NULL,
+    `hourly_rate`    DECIMAL      NULL,
+    `quantity_hours` DECIMAL      NULL,
     PRIMARY KEY (`id`)
 )
     ENGINE = InnoDB
@@ -76,16 +76,16 @@ CREATE TABLE IF NOT EXISTS `ServicesCar`.`orders`
     `parts_cost`           DECIMAL      NULL,
     `hourly_rate`          INT          NULL,
     `repair_hours`         DECIMAL      NULL,
-    `workers_id`           INT          NOT NULL,
-    `clients_id`           INT          NOT NULL,
-    `vehicles_id`          INT          NOT NULL,
+    `employee_id`          INT          NOT NULL,
+    `client_id`            INT          NOT NULL,
+    `vehicle_id`           INT          NOT NULL,
     PRIMARY KEY (`id`),
-    INDEX `fk_workers_has_clients_clients1_idx` (`clients_id` ASC) VISIBLE,
-    INDEX `fk_workers_has_clients_workers1_idx` (`workers_id` ASC) VISIBLE,
+    INDEX `fk_workers_has_clients_clients1_idx` (client_id ASC) VISIBLE,
+    INDEX `fk_workers_has_clients_workers1_idx` (employee_id ASC) VISIBLE,
     INDEX `fk_workers_has_clients_hourly_rate1_idx` (`hourly_rate` ASC) VISIBLE,
-    INDEX `fk_workers_has_clients_vehicles1_idx` (`vehicles_id` ASC) VISIBLE,
+    INDEX `fk_workers_has_clients_vehicles1_idx` (vehicle_id ASC) VISIBLE,
     CONSTRAINT `fk_workers_has_clients_workers1`
-        FOREIGN KEY (`workers_id`)
+        FOREIGN KEY (employee_id)
             REFERENCES `ServicesCar`.`employees` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
@@ -95,12 +95,12 @@ CREATE TABLE IF NOT EXISTS `ServicesCar`.`orders`
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT `fk_workers_has_clients_clients1`
-        FOREIGN KEY (`clients_id`)
+        FOREIGN KEY (client_id)
             REFERENCES `ServicesCar`.`clients` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT `fk_workers_has_clients_vehicles1`
-        FOREIGN KEY (`vehicles_id`)
+        FOREIGN KEY (vehicle_id)
             REFERENCES `ServicesCar`.`vehicles` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION

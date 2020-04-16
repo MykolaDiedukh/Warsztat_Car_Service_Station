@@ -1,4 +1,4 @@
 package station.service.car.dao;
 
-public class CarDao {
+public class ClientDao {
 }
