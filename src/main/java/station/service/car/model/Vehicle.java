@@ -9,29 +9,32 @@ public class Vehicle {
     private String color;
     private Date productionYear;
     private String gearBox;
+    private String registrationNumber;
     private String model;
     private Date review;
 
     public Vehicle() {
     }
 
-    public Vehicle(String brand, String engine, String color, Date productionYear, String gearBox, String model, Date review) {
+    public Vehicle(String brand, String engine, String color, Date productionYear, String gearBox, String registrationNumber, String model, Date review) {
         this.brand = brand;
         this.engine = engine;
         this.color = color;
         this.productionYear = productionYear;
         this.gearBox = gearBox;
+        this.registrationNumber = registrationNumber;
         this.model = model;
         this.review = review;
     }
 
-    public Vehicle(int id, String brand, String engine, String color, Date productionYear, String gearBox, String model, Date review) {
+    public Vehicle(int id, String brand, String engine, String color, Date productionYear, String gearBox, String registrationNumber, String model, Date review) {
         this.id = id;
         this.brand = brand;
         this.engine = engine;
         this.color = color;
         this.productionYear = productionYear;
         this.gearBox = gearBox;
+        this.registrationNumber = registrationNumber;
         this.model = model;
         this.review = review;
     }
@@ -45,9 +48,18 @@ public class Vehicle {
                 ", color='" + color + '\'' +
                 ", productionYear=" + productionYear +
                 ", gearBox='" + gearBox + '\'' +
+                ", registrationNumber='" + registrationNumber + '\'' +
                 ", model='" + model + '\'' +
                 ", review=" + review +
                 '}';
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
     }
 
     public int getId() {

@@ -9,48 +9,45 @@ public class Order {
     private Date start;
     private String descProblem;
     private String descRepair;
-    private int status;
     private double repairCost;
     private double partsCost;
     private int hourlyRate;
     private double repairHours;
     private int employeeId;
-    private int clientId;
+    private int customerId;
     private int vehicleId;
 
     public Order() {
     }
 
-    public Order(Date accepted, Date planted, Date start, String descProblem, String descRepair, int status, double repairCost, double partsCost, int hourlyRate, double repairHours, int employeeId, int clientId, int vehicleId) {
+    public Order(Date accepted, Date planted, Date start, String descProblem, String descRepair, double repairCost, double partsCost, int hourlyRate, double repairHours, int employeeId, int customerId, int vehicleId) {
         this.accepted = accepted;
         this.planted = planted;
         this.start = start;
         this.descProblem = descProblem;
         this.descRepair = descRepair;
-        this.status = status;
         this.repairCost = repairCost;
         this.partsCost = partsCost;
         this.hourlyRate = hourlyRate;
         this.repairHours = repairHours;
         this.employeeId = employeeId;
-        this.clientId = clientId;
+        this.customerId = customerId;
         this.vehicleId = vehicleId;
     }
 
-    public Order(int id, Date accepted, Date planted, Date start, String descProblem, String descRepair, int status, double repairCost, double partsCost, int hourlyRate, double repairHours, int employeeId, int clientId, int vehicleId) {
+    public Order(int id, Date accepted, Date planted, Date start, String descProblem, String descRepair, double repairCost, double partsCost, int hourlyRate, double repairHours, int employeeId, int customerId, int vehicleId) {
         this.id = id;
         this.accepted = accepted;
         this.planted = planted;
         this.start = start;
         this.descProblem = descProblem;
         this.descRepair = descRepair;
-        this.status = status;
         this.repairCost = repairCost;
         this.partsCost = partsCost;
         this.hourlyRate = hourlyRate;
         this.repairHours = repairHours;
         this.employeeId = employeeId;
-        this.clientId = clientId;
+        this.customerId = customerId;
         this.vehicleId = vehicleId;
     }
 
@@ -63,13 +60,12 @@ public class Order {
                 ", start=" + start +
                 ", descProblem='" + descProblem + '\'' +
                 ", descRepair='" + descRepair + '\'' +
-                ", status=" + status +
                 ", repairCost=" + repairCost +
                 ", partsCost=" + partsCost +
                 ", hourlyRate=" + hourlyRate +
                 ", repairHours=" + repairHours +
                 ", employeeId=" + employeeId +
-                ", clientId=" + clientId +
+                ", clientId=" + customerId +
                 ", vehicleId=" + vehicleId +
                 '}';
     }
@@ -122,14 +118,6 @@ public class Order {
         this.descRepair = descRepair;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
     public double getRepairCost() {
         return repairCost;
     }
@@ -170,12 +158,12 @@ public class Order {
         this.employeeId = employeeId;
     }
 
-    public int getClientId() {
-        return clientId;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public int getVehicleId() {
