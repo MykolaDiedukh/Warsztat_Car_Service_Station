@@ -18,7 +18,7 @@ public class VehiclesDao {
     private static final String UPDATE_VEHICLE_QUERY = "UPDATE vehicles SET brand = ? , engine = ?, color = ?, production_year = ?, gear_box = ?, registration_number = ?, model = ?, next_technical_review = ? WHERE id = ?;";
 
     /**
-     * Create employee
+     * Create vehicle
      *
      * @param vehicle
      * @return
@@ -59,7 +59,7 @@ public class VehiclesDao {
      *
      * @return
      */
-    public List<Vehicle> findAll() {
+    public List<Vehicle> readAll() {
         List<Vehicle> vehicleList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(READ_ALL_VEHICLES_QUERY);

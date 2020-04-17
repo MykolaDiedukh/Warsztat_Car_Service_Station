@@ -56,7 +56,7 @@ public class CustomerDao {
      *
      * @return
      */
-    public List<Customer> findAll() {
+    public List<Customer> readALL() {
         List<Customer> employeeList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(READ_ALL_CUSTOMERS_QUERY);

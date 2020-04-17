@@ -53,7 +53,7 @@ public class StatusDao {
      *
      * @return
      */
-    public List<Status> findAll() {
+    public List<Status> readALL() {
         List<Status> statusList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(READ_ALL_CUSTOMERS_QUERY);

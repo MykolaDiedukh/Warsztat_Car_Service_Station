@@ -62,7 +62,7 @@ public class EmployeeDao {
      *
      * @return
      */
-    public List<Employee> findAll() {
+    public List<Employee> readALL() {
         List<Employee> employeeList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(READ_ALL_EMPLOYEES_QUERY);

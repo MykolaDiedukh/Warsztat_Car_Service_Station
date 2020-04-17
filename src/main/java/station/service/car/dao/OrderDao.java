@@ -64,7 +64,7 @@ public class OrderDao {
      *
      * @return
      */
-    public List<Order> findAll() {
+    public List<Order> readALL() {
         List<Order> employeeList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(READ_ALL_EMPLOYEES_QUERY);
